@@ -181,7 +181,7 @@ class GraphRAGPipeline:
             "statistics": {
                 "total_entities": total_entities,
                 "total_relationships": total_relationships,
-                "avg_entities_per_chunk": total_entities / len(self.chunks) if self.chunks else 0
+                "avg_entities_per_chunk": total_entities / max(len(self.chunks), 1)
             }
         })
         

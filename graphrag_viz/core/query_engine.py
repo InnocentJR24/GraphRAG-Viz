@@ -130,6 +130,12 @@ class QueryEngine:
         """
         Score community relevance to the query.
         
+        NOTE: This is a lightweight keyword-based approach for the Glass Box implementation.
+        For production use, consider implementing:
+        - TF-IDF scoring for better keyword weighting
+        - Embedding-based similarity using sentence transformers
+        - Proper stop word filtering using NLTK or spaCy
+        
         Args:
             question: User's question
             summary_data: Community summary data

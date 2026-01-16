@@ -53,8 +53,18 @@ class EntityExtractor:
                 response_format={"type": "json_object"}
             )
             
-            # Parse response
-            result = json.loads(response.choices[0].message.content)
+            # Parse response with error handling
+            try:
+                result = json.loads(response.choices[0].message.content)
+                # Validate structure
+                if not isinstance(result, dict):
+                    raise ValueError("LLM response is not a dictionary")
+                if "entities" not in result or "relationships" not in result:
+                    logger.warning(f"Incomplete LLM response for {chunk_id}, using defaults")
+                    result = {"entities": result.get("entities", []), "relationships": result.get("relationships", [])}
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.error(f"Failed to parse LLM response for {chunk_id}: {e}")
+                result = {"entities": [], "relationships": []}
             
             # Add provenance and traceability metadata
             extraction_result = {

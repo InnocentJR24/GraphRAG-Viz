@@ -15,8 +15,8 @@ python-louvain>=0.16
 # Text processing
 nltk>=3.8.0
 
-# Optional: for better entity extraction
-spacy>=3.7.0
+# Optional: for better entity extraction (uncomment if needed)
+# spacy>=3.7.0
 
 # Development
 pytest>=7.4.0
