@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphrag-viz"
+version = "0.1.0"
+description = "A Glass Box Implementation of GraphRAG Pipeline - An Interpretability Framework for Global Query Summarization"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "GraphRAG-Viz Contributors"}
+]
+keywords = ["graphrag", "rag", "knowledge-graph", "nlp", "interpretability", "transparency"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "networkx>=3.0",
+    "numpy>=1.24.0",
+    "tiktoken>=0.5.0",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "matplotlib>=3.7.0",
+    "pyvis>=0.3.2",
+    "python-louvain>=0.16",
+    "nltk>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "jupyter>=1.0.0",
+]
+spacy = [
+    "spacy>=3.7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/InnocentJR24/GraphRAG-Viz"
+Repository = "https://github.com/InnocentJR24/GraphRAG-Viz"
+Issues = "https://github.com/InnocentJR24/GraphRAG-Viz/issues"
+
+[project.scripts]
+graphrag-viz = "graphrag_viz.cli:main"
+
+[tool.setuptools]
+packages = ["graphrag_viz", "graphrag_viz.core", "graphrag_viz.utils", "graphrag_viz.visualization"]
+
+[tool.setuptools.package-data]
+graphrag_viz = ["py.typed"]
