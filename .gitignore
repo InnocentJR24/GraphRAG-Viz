@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Data
+data/processed/*
+!data/processed/.gitkeep 
+
+# Logs
+lib/
+*.html
+
+# IDES
+.vscode/
+.idea/

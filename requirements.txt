@@ -1,0 +1,10 @@
+langchain
+langchain-ollama
+networkx
+cdlib
+leidenalg
+pyvis
+streamlit
+pydantic
+matplotlib
+langchain_text_splitters
